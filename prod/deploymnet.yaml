@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: etd-app-deploy
+  name: etd-app
   namespace: etd
 spec:
   replicas: 2
@@ -14,13 +14,10 @@ spec:
         app: etd-app
     spec:
       containers:
-        - name: etd-app-container
+        - name: etd-app
           image: 992382830946.dkr.ecr.ap-northeast-2.amazonaws.com/easy-to-dedicate
           ports:
             - containerPort: 80
-          #env:
-           # - name: ACTIVE_PROFILE
-            #  value: prod
       imagePullSecrets:
-        - name: regcred # kubectl secret 으로 생성
+        - name: regcred
 
