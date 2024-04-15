@@ -1,0 +1,34 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: argocd-pv
+  namespace: argocd
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  persistentVolumeReclaimPolicy: Retain
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+              - gke-etd-default-pool-82fcc1d5-q2rj
+  gcePersistentDisk:
+    pdName: argocd-pd
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: argocd-pvc
+  namespace: argocd
+spec:
+  storageClassName: ""
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
