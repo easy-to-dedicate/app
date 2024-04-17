@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: etd-app
+  namespace: etd
 spec:
   replicas: 2
   selector:
