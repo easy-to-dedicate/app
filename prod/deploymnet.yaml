@@ -1,0 +1,129 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: etd-app
+  namespace: etd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: etd-app
+  template:
+    metadata:
+      labels:
+        app: etd-app
+    spec:
+      containers:
+        - name: etd-app
+          image: 992382830946.dkr.ecr.ap-northeast-2.amazonaws.com/easy-to-dedicate
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+          env:
+            - name: ACTIVE_PROFILE
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: ACTIVE_PROFILE
+            #datasource#
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_HOST
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_PORT
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_DB
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_USER
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: POSTGRES_PASSWORD
+            #mongodb#
+            - name: MONGO_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: MONGO_HOST
+            - name: MONGO_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: MONGO_PORT
+            - name: MONGO_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: MONGO_USERNAME
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: MONGO_PASSWORD
+            #rabbitmq
+            - name: RABBITMQ_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: RABBITMQ_HOST
+            - name: RABBITMQ_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: RABBITMQ_PORT
+            - name: RABBITMQ_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: RABBITMQ_USERNAME
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: RABBITMQ_PASSWORD
+            #aws-credential
+            - name: AWS_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: AWS_ACCESS_KEY
+            - name: AWS_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: AWS_SECRET_KEY
+            - name: AWS_STATIC_REGION
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: AWS_STATIC_REGION
+            - name: AWS_S3_BUCKET
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: AWS_S3_BUCKET
+            #google#
+            - name: GOOGLE_CLIENT_ID
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: GOOGLE_CLIENT_ID
+            - name: GOOGLE_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: GOOGLE_CLIENT_SECRET
+      imagePullSecrets:
+        - name: regcred

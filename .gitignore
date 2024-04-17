@@ -1,6 +1,6 @@
 
 my-secret.yaml
 secret_org.yaml
-deploymnet.yaml
-service.yaml
 argocd-volume.yaml
+svc.yaml
+deploy.yaml
