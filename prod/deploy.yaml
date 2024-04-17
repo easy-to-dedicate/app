@@ -15,9 +15,7 @@ spec:
     spec:
       containers:
         - name: etd-app
-          image: 992382830946.dkr.ecr.ap-northeast-2.amazonaws.com/easy-to-dedicate
+          image: nginx
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
-      imagePullSecrets:
-        - name: regcred
-
