@@ -125,5 +125,11 @@ spec:
                 secretKeyRef:
                   name: my-secret
                   key: GOOGLE_CLIENT_SECRET
+            #kakao
+            - name: kakao-client-id
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: kakao-client-id
       imagePullSecrets:
         - name: regcred
