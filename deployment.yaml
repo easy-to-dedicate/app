@@ -15,8 +15,7 @@ spec:
     spec:
       containers:
         - name: etd-app
-          easy-to-dedicate:${BUILD_NUMBER}
-          # imagePullPolicy: IfNotPresent
+          image: 992382830946.dkr.ecr.ap-northeast-2.amazonaws.com/easy-to-dedicate:latest
           ports:
             - containerPort: 80
           env:
