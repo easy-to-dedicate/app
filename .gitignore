@@ -4,3 +4,4 @@ secret_org.yaml
 argocd-volume.yaml
 svc.yaml
 deploy.yaml
+kutomize.yaml
