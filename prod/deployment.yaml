@@ -53,25 +53,33 @@ spec:
                   key: POSTGRES_PASSWORD
             #mongodb#
             - name: MONGO_HOST
-              valueFrom:
-                secretKeyRef:
-                  name: my-secret
-                  key: MONGO_HOST
+              value: 3.35.218.166
             - name: MONGO_PORT
-              valueFrom:
-                secretKeyRef:
-                  name: my-secret
-                  key: MONGO_PORT
+              value: 27017
             - name: MONGO_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: my-secret
-                  key: MONGO_USERNAME
+              value: admin
             - name: MONGO_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: my-secret
-                  key: MONGO_PASSWORD
+              value: cp6zIfrAPtcogGSR
+            # - name: MONGO_HOST
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: my-secret
+            #       key: MONGO_HOST
+            # - name: MONGO_PORT
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: my-secret
+            #       key: MONGO_PORT
+            # - name: MONGO_USERNAME
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: my-secret
+            #       key: MONGO_USERNAME
+            # - name: MONGO_PASSWORD
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: my-secret
+            #       key: MONGO_PASSWORD
             #rabbitmq
             - name: RABBITMQ_HOST
               valueFrom:
