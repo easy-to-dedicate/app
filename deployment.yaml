@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: etd-app
-          image: 992382830946.dkr.ecr.ap-northeast-2.amazonaws.com/easy-to-dedicate:35
+          image: 992382830946.dkr.ecr.ap-northeast-2.amazonaws.com/easy-to-dedicate:36
           ports:
             - containerPort: 80
           env:
